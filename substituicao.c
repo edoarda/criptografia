@@ -76,6 +76,11 @@ char encryptifier(int *chave, char letra) {
      printf("%s", textao);
      printf("%c", textao[0]);
      */
+     char saida;
+     while (scanf("%c", &velha) && velha != '#') {
+         saida = encryptifier(chave, velha);
+         printf("%c", saida);
+     }
      if (escolha == 'e' || escolha == 'E') {
          //encripta o maluco
          //encryptifier(chavinha);
