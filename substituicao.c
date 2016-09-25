@@ -29,7 +29,8 @@ char encryptifier(int *chave, char letra) {
         return letra;
     else {
         out = (((letra-64) + chave_de_conta) % 26)+64; //se a letra resultado for Z vai dar 64 e nao 90, endireitar isso
-         
+        if(out == 64)
+                 out = 90;
     }
     *chave = *chave + (letra-64);
     
@@ -55,9 +56,10 @@ char encryptifier(int *chave, char letra) {
 
      printf("Digite vossa mensagem.\n ");
 
+     /*
      char* velha;
      int bandeira = 1;
-     /*
+     
      while (bandeira) {
          fflush(stdin); //limpando o buffer pra não ter \n's alheios
          fgets (buffer, 256, stdin);
