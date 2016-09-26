@@ -18,6 +18,7 @@ char encryptifier(int *chave, char letra, int encriptar) {
     if (letra < 65 || letra > 90)
         return letra;
     else {
+        // Se for pra encriptar o valor de encriptar eh 1 e se for pra decriptar o valor eh -1
         out = ((soma_pra_caramba((letra-64) + (*chave)*encriptar)) % 26)+64;
         if(out == 64) //arruma caso a letra seja Z
             out = 90;
@@ -43,7 +44,7 @@ char encryptifier(int *chave, char letra, int encriptar) {
 
      printf("Digite D para decriptar e E para encriptar\n");
      scanf("%c", &escolha);
-     int encriptar;
+     int encriptar;  
      if (escolha == 'e' || escolha == 'E') {
          encriptar = 1;
      } 
