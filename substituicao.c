@@ -24,7 +24,7 @@ char encryptifier(int *chave, char letra, int encriptar) {
             out = 90;
     }
 
-    //coisador da chave nova
+    //coisador da chave nova!
     if(encriptar==1)
         *chave = *chave + (out-64);
     else if (encriptar==-1)
