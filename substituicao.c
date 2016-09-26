@@ -36,12 +36,12 @@ char encryptifier(int *chave, char letra, int encriptar) {
      char* para_a_musica = (char*) malloc (sizeof(char));//nao tem utilidade funcional nenhuma nesse programa, mas ta ai pela piada.
      int* chave = (int*) malloc (sizeof(int));
 
-     printf("#### (DES)CRIPTOVADOR 3000 ####\n\n");
+     //printf("#### (DES)CRIPTOVADOR 3000 ####\n\n");
 
      char escolha;
      int chavinha;
 
-     printf("Digite D para decriptar OU digite E para encriptar sua mensagem.\n");
+     printf("Digite D para decriptar e E para encriptar\n");
      scanf("%c", &escolha);
      int encriptar;
      if (escolha == 'e' || escolha == 'E') {
@@ -51,11 +51,10 @@ char encryptifier(int *chave, char letra, int encriptar) {
          encriptar = -1;
      } 
 
-    printf("Digite o valor da sua chave inicial.\n");
+    printf("Digite o valor da chave\n");
     scanf("%d", chave);
-    printf("sua chave foi %d", *chave);
 
-     printf("Digite vossa mensagem.\n ");
+     printf("Digite o texto\n ");
 
      char velha;
 
