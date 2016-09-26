@@ -54,6 +54,12 @@ char encryptifier(int *chave, char letra, int encriptar) {
 
     printf("Digite o valor da chave\n");
     scanf("%d", chave);
+    if (*chave != 0) {
+        *chave = *chave % 26;
+        if (*chave == 0)
+            *chave = 26;
+    }
+        
 
      printf("Digite o texto\n");
      fflush(stdin); //limpando o buffer pra não ter \n's alheios na saida
