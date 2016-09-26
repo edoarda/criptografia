@@ -19,7 +19,7 @@ int soma_pra_caramba (int numero) {
     return numero;
 }
 
-char encryptifier(int *chave, char letra) {
+char encryptifier(int *chave, char letra, int encriptar) {
     //DE 65 A 90
     //espaço é 32
     //remover 64
@@ -28,11 +28,14 @@ char encryptifier(int *chave, char letra) {
     if (letra < 65 || letra > 90)
         return letra;
     else {
-        out = (((letra-64) + chave_de_conta) % 26)+64; //se a letra resultado for Z vai dar 64 e nao 90, endireitar isso
+        out = ((soma_pra_caramba((letra-64) + chave_de_conta*encriptar)) % 26)+64; //se a letra resultado for Z vai dar 64 e nao 90, endireitar isso
         if(out == 64)
                  out = 90;
     }
-    *chave = *chave + (out-64);
+    if(encriptar==1)
+        *chave = *chave + (out-64);
+    else if (encriptar==-1)
+        *chave = *chave + (letra-64);
     
     return out;
 }
@@ -47,8 +50,15 @@ char encryptifier(int *chave, char letra) {
      char escolha;
      int chavinha;
 
-    //  printf("Digite D para decriptar OU digite E para encriptar sua mensagem.\n");
-    //  scanf("%c", &escolha);
+     printf("Digite D para decriptar OU digite E para encriptar sua mensagem.\n");
+     scanf("%c", &escolha);
+     int encriptar;
+     if (escolha == 'e' || escolha == 'E') {
+         encriptar = 1;
+     } 
+     else if (escolha == 'd' || escolha == 'D') {
+         encriptar = -1;
+     } 
 
     printf("Digite o valor da sua chave inicial.\n");
     scanf("%d", chave);
@@ -80,11 +90,10 @@ char encryptifier(int *chave, char letra) {
      */
      char saida;
      while (scanf("%c", &velha) && velha != '#') {
-         saida = encryptifier(chave, velha);
-         printf("%d\n", *chave);
+         saida = encryptifier(chave, velha, encriptar);
          printf("%c", saida);
      }
-     if (escolha == 'e' || escolha == 'E') {
+     /*if (escolha == 'e' || escolha == 'E') {
          //encripta o maluco
          //encryptifier(chavinha);
      } 
@@ -93,7 +102,7 @@ char encryptifier(int *chave, char letra) {
      } 
      else {
          printf("Opcao invalida amigo. Tente novamente (Ou nao)");
-     }
+     }*/
 
      //I want to break
      free (textao);
