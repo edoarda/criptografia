@@ -33,7 +33,7 @@ char encryptifier(int *chave, char letra, int encriptar) {
 
  int main () {
      
-     char* textao = (char*) calloc (MAX_TEXTAO, sizeof(char));
+     char* para_a_musica = (char*) malloc (sizeof(char));//nao tem utilidade funcional nenhuma nesse programa, mas ta ai pela piada.
      int* chave = (int*) malloc (sizeof(int));
 
      printf("#### (DES)CRIPTOVADOR 3000 ####\n\n");
@@ -76,7 +76,7 @@ char encryptifier(int *chave, char letra, int encriptar) {
      }*/
 
      //I want to break
-     free (textao);
+     free (para_a_musica);
      //I want to break
      free (chave);
  }
