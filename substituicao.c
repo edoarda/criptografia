@@ -26,9 +26,9 @@ char encryptifier(int *chave, char letra, int encriptar) {
 
     //coisador da chave nova!
     if(encriptar==1)
-        *chave = *chave + (out-64);
+        *chave = (*chave + (out-64)) % 26;
     else if (encriptar==-1)
-        *chave = *chave + (letra-64);
+        *chave = (*chave + (letra-64)) % 26;
     
     return out;
 }
@@ -55,6 +55,7 @@ char encryptifier(int *chave, char letra, int encriptar) {
     printf("Digite o valor da chave\n");
     scanf("%d", chave);
     if (*chave != 0) {
+        *chave = soma_pra_caramba(*chave);
         *chave = *chave % 26;
         if (*chave == 0)
             *chave = 26;
