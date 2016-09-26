@@ -1,17 +1,8 @@
-/* PROGRAMA DA ALEGRIA QUE SUBSTITUI COISAS
- * 
- *
- *
- *
- *
- */
+// PROGRAMA DA ALEGRIA QUE SUBSTITUI COISAS
 
  #include <stdio.h>
  #include <stdlib.h>
  #include <string.h>
-
- //definindo maior tamanho de texto porque eu desisti de fazer isso full dinamico.
- #define MAX_TEXTAO 256
 
 int soma_pra_caramba (int numero) {
     while (numero < 0)
@@ -66,28 +57,8 @@ char encryptifier(int *chave, char letra, int encriptar) {
 
      printf("Digite vossa mensagem.\n ");
 
-     char* velha;
-     /*
-     int bandeira = 1;
-     
-     while (bandeira) {
-         fflush(stdin); //limpando o buffer pra não ter \n's alheios
-         fgets (buffer, 256, stdin);
+     char velha;
 
-         //ve se tem a velha na linha de entrada
-         velha = strchr(buffer,'#');
-         
-         //dá append no texto, enfia um \n e segue a vida
-         strcat(textao, buffer);
-         strcat(textao,"\n");
-         
-         if (velha != NULL)
-             bandeira = 0;
-     }
-
-     printf("%s", textao);
-     printf("%c", textao[0]);
-     */
      char saida;
      while (scanf("%c", &velha) && velha != '#') {
          saida = encryptifier(chave, velha, encriptar);
