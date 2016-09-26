@@ -14,12 +14,11 @@ int soma_pra_caramba (int numero) {
 //funcao magica que decripta E encripta
 char encryptifier(int *chave, char letra, int encriptar) {
     //CHAR DO ASCII DE 65 A 90
-    int chave_de_conta = soma_pra_caramba(*chave);
     char out;
     if (letra < 65 || letra > 90)
         return letra;
     else {
-        out = ((soma_pra_caramba((letra-64) + chave_de_conta*encriptar)) % 26)+64;
+        out = ((soma_pra_caramba((letra-64) + (*chave)*encriptar)) % 26)+64;
         if(out == 64) //arruma caso a letra seja Z
             out = 90;
     }
@@ -54,13 +53,8 @@ char encryptifier(int *chave, char letra, int encriptar) {
 
     printf("Digite o valor da chave\n");
     scanf("%d", chave);
-    if (*chave != 0) {
-        *chave = soma_pra_caramba(*chave);
-        *chave = *chave % 26;
-        if (*chave == 0)
-            *chave = 26;
-    }
-        
+
+    *chave = soma_pra_caramba(*chave) % 26;
 
      printf("Digite o texto\n");
      fflush(stdin); //limpando o buffer pra não ter \n's alheios na saida
