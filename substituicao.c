@@ -19,7 +19,7 @@ char encryptifier(int *chave, char letra, int encriptar) {
     if (letra < 65 || letra > 90)
         return letra;
     else {
-        out = ((soma_pra_caramba((letra-64) + chave_de_conta*encriptar)) % 26)+64; //se a letra resultado for Z vai dar 64 e nao 90, endireitar isso
+        out = ((soma_pra_caramba((letra-64) + chave_de_conta*encriptar)) % 26)+64;
         if(out == 64) //arruma caso a letra seja Z
             out = 90;
     }
