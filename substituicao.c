@@ -32,7 +32,7 @@ char encryptifier(int *chave, char letra) {
         if(out == 64)
                  out = 90;
     }
-    *chave = *chave + (letra-64);
+    *chave = *chave + (out-64);
     
     return out;
 }
@@ -56,8 +56,8 @@ char encryptifier(int *chave, char letra) {
 
      printf("Digite vossa mensagem.\n ");
 
-     /*
      char* velha;
+     /*
      int bandeira = 1;
      
      while (bandeira) {
@@ -81,6 +81,7 @@ char encryptifier(int *chave, char letra) {
      char saida;
      while (scanf("%c", &velha) && velha != '#') {
          saida = encryptifier(chave, velha);
+         printf("%d\n", *chave);
          printf("%c", saida);
      }
      if (escolha == 'e' || escolha == 'E') {
